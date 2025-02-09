@@ -14,6 +14,12 @@ menuCloseBtn.addEventListener('click', () => {
 navLinks.forEach((link) => {
   link.addEventListener('click', () => {
     menuOpenBtn.click()
+
+    // Remove .active from all links
+    navLinks.forEach((nav) => nav.classList.remove('active'))
+
+    // Add .active to the clicked link
+    link.classList.add('active')
   })
 })
 
@@ -50,3 +56,9 @@ const swiper = new Swiper('.slider-wrapper', {
     },
   },
 })
+
+window.onload = function () {
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, 1)
+}
